@@ -71,22 +71,6 @@ int prnt_an_int(va_list args)
 		count++;
 	}
 
-	recurse_int_bineger(m);
+	recurse_int_bin(m);
 	return (count);
-}
-
-/**
-  * recurse_int_bineger - Prints a int
-  * @a: int to be printed
-  *
-  * Return: Nothing
-  */
-void recurse_int_bineger(int a)
-{
-	unsigned int t;
-
-	t = a;
-	if (t / 10)
-		recurse_int_bineger(t / 10);
-	wrte(t % 10 + '0');
 }
