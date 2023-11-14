@@ -11,7 +11,7 @@
 int _print_int_binary(va_list args)
 {
 	unsigned int m = 0;
-	int p = 0, current = 0;
+	int b = 0, current = 0;
 
 	current = va_arg(args, int);
 	m = current;
@@ -20,15 +20,15 @@ int _print_int_binary(va_list args)
 		_write('1');
 		current = current * -1;
 		m = current;
-		p += 1;
+		b += 1;
 	}
 	while (m > 0)
 	{
 		m = m / 2;
-		p++;
+		b++;
 	}
 	_recursion_int_binary(current);
-	return (p);
+	return (b);
 }
 
 /**
