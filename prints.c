@@ -3,10 +3,10 @@
 #include <stdio.h>
 
 /**
-  * _print_a_char - Prints a char
-  * @args: A list of variadic arguments
+  * _print_a_char - Prints chars in the args
+  * @args: A list of variadic args
   *
-  * Return: The length of the character
+  * Return: The len of the chars
   */
 int _print_a_char(va_list args)
 {
@@ -15,25 +15,25 @@ int _print_a_char(va_list args)
 }
 
 /**
-  * _print_a_string - Prints a string
-  * @args: A list of variadic arguments
+  * _print_a_string - Print all strs
+  * @args: list of variadic args..
   *
-  * Return: The length of the string
+  * Return: The len of the strs
   */
 int _print_a_string(va_list args)
 {
-	char *arg = va_arg(args, char *);
-	int i = 0;
+	char *melody = va_arg(args, char *);
+	int ese = 0;
 
-	if (arg != NULL)
+	if (melody != NULL)
 	{
-		while (arg[i])
+		while (melody[ese])
 		{
-			_write(arg[i]);
-			i++;
+			_write(melody[ese]);
+			ese++;
 		}
 
-		return (i);
+		return (ese);
 	}
 
 	_write('(');
@@ -46,33 +46,33 @@ int _print_a_string(va_list args)
 }
 
 /**
-  * _print_a_integer - Prints a integer
-  * @args: A list of variadic arguments
+  * _print_a_integer - Print ints
+  * @args: list of variadic args
   *
-  * Return: The length of the string
+  * Return: The len of the strs
   */
 int _print_a_integer(va_list args)
 {
-	int count = 1, m = 0;
-	unsigned int n = 0;
+	int ese = 1, otim = 0;
+	unsigned int k = 0;
 
-	n = va_arg(args, int);
-	m = n;
-	if (m < 0)
+	k = va_arg(args, int);
+	otim = k;
+	if (otim < 0)
 	{
 		_write('-');
-		m = m * -1;
-		n = m;
-		count += 1;
+		otim = otim * -1;
+		k = otim;
+		ese += 1;
 	}
-	while (n > 9)
+	while (k > 9)
 	{
-		n = n / 10;
-		count++;
+		k = k / 10;
+		ese++;
 	}
 
-	_recursion_integer(m);
-	return (count);
+	_recursion_integer(otim);
+	return (ese);
 }
 
 /**
@@ -83,10 +83,10 @@ int _print_a_integer(va_list args)
   */
 void _recursion_integer(int a)
 {
-	unsigned int t;
+	unsigned int p;
 
-	t = a;
-	if (t / 10)
-		_recursion_integer(t / 10);
-	_write(t % 10 + '0');
+	p = a;
+	if (p / 10)
+		_recursion_integer(p / 10);
+	_write(p % 10 + '0');
 }

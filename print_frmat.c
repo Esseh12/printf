@@ -10,7 +10,7 @@
   */
 int _print_format(const char *format, va_list args)
 {
-	int count = 0;
+	int ese = 0;
 	int i = 0;
 
 	while (format && format[i])
@@ -26,26 +26,26 @@ int _print_format(const char *format, va_list args)
 				i++;
 
 			if (format[i] == '%')
-				count += _write(format[i]);
+				ese += _write(format[i]);
 
 			if (_validate_char(format[i]) == 0)
 			{
-				count = _print_invalid_spec(format[i - 1], format[i], count);
+				ese = _print_invalid_spec(format[i - 1], format[i], ese);
 			}
 			else
 			{
-				count += _print_spec(format[i], args);
+				ese += _print_spec(format[i], args);
 			}
 		}
 		else
 		{
-			count += _write(format[i]);
+			ese += _write(format[i]);
 		}
 
 		i++;
 	}
 
-	return (count);
+	return (ese);
 }
 
 /**
@@ -112,13 +112,13 @@ int _print_invalid_spec(char prev_format, char format, int count)
 int _validate_char(char _type)
 {
 	char _types[] = {'c', 's', 'd', 'i', 'b', '%'};
-	int i = 0;
+	int l = 0;
 
-	while (_types[i])
+	while (_types[l])
 	{
-		if (_types[i] == _type)
+		if (_types[l] == _type)
 			return (1);
-		i++;
+		l++;
 	}
 	return (0);
 }

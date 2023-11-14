@@ -10,25 +10,25 @@
   */
 int _print_int_binary(va_list args)
 {
-	unsigned int x = 0;
-	int b = 0, new = 0;
+	unsigned int m = 0;
+	int p = 0, current = 0;
 
-	new = va_arg(args, int);
-	x = new;
-	if (new < 0)
+	current = va_arg(args, int);
+	m = current;
+	if (current < 0)
 	{
 		_write('1');
-		new = new * -1;
-		x = new;
-		b += 1;
+		current = current * -1;
+		m = current;
+		p += 1;
 	}
-	while (x > 0)
+	while (m > 0)
 	{
-		x = x / 2;
-		b++;
+		m = m / 2;
+		p++;
 	}
-	_recursion_int_binary(new);
-	return (b);
+	_recursion_int_binary(current);
+	return (p);
 }
 
 /**
@@ -38,10 +38,10 @@ int _print_int_binary(va_list args)
   */
 void _recursion_int_binary(int a)
 {
-	unsigned int t;
+	unsigned int x;
 
-	t = a;
-	if (t / 2)
-		_recursion_int_binary(t / 2);
-	_write(t % 2 + '0');
+	x = a;
+	if (x / 2)
+		_recursion_int_binary(x / 2);
+	_write(x % 2 + '0');
 }

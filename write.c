@@ -2,11 +2,11 @@
 #include <unistd.h>
 #include <stdio.h>
 /**
- * _write - writes the char c to stdout
- * @c: The character to print
+ * _write - writes the character c to standard output
+ * @c: The chars to be printed
  *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
+ * Return: 1 if successful
+ * On error, -1 is returned.
  */
 int _write(char c)
 {
