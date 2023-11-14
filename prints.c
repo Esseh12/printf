@@ -3,22 +3,10 @@
 #include <stdio.h>
 
 /**
-  * _print_a_char - Prints chars in the args
-  * @args: A list of variadic args
-  *
-  * Return: The len of the chars
-  */
-int _print_a_char(va_list args)
-{
-	_write(va_arg(args, int));
-	return (1);
-}
-
-/**
-  * _print_a_string - Print all strs
+  * _print_a_string - Print all strs...
   * @args: list of variadic args..
   *
-  * Return: The len of the strs
+  * Return: The len of the strs.....
   */
 int _print_a_string(va_list args)
 {
@@ -43,36 +31,6 @@ int _print_a_string(va_list args)
 	_write('l');
 	_write(')');
 	return (6);
-}
-
-/**
-  * _print_a_integer - Print ints
-  * @args: list of variadic args
-  *
-  * Return: The len of the strs
-  */
-int _print_a_integer(va_list args)
-{
-	int ese = 1, otim = 0;
-	unsigned int k = 0;
-
-	k = va_arg(args, int);
-	otim = k;
-	if (otim < 0)
-	{
-		_write('-');
-		otim = otim * -1;
-		k = otim;
-		ese += 1;
-	}
-	while (k > 9)
-	{
-		k = k / 10;
-		ese++;
-	}
-
-	_recursion_integer(otim);
-	return (ese);
 }
 
 /**

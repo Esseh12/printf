@@ -2,47 +2,47 @@
 #include <stdlib.h>
 
 /**
-  * _print_format - Prints a format
-  * @format: The format to prints
-  * @args: A list of variadic arguments
+  * _print_format - displays the format of the print
+  * @format: The format of code to be printed
+  * @args: variadic arguments list to be printed
   *
-  * Return: The length of the format
+  * Return: format's length
   */
 int _print_format(const char *format, va_list args)
 {
 	int ese = 0;
-	int i = 0;
+	int k = 0;
 
-	while (format && format[i])
+	while (format && format[k])
 	{
-		if (format[i] == '%')
+		if (format[k] == '%')
 		{
-			if (format[i + 1] == '\0')
+			if (format[k + 1] == '\0')
 				return (-1);
 
-			i++;
+			k++;
 
-			while (format[i] == ' ')
-				i++;
+			while (format[k] == ' ')
+				k++;
 
-			if (format[i] == '%')
-				ese += _write(format[i]);
+			if (format[k] == '%')
+				ese += _write(format[k]);
 
-			if (_validate_char(format[i]) == 0)
+			if (_validate_char(format[k]) == 0)
 			{
-				ese = _print_invalid_spec(format[i - 1], format[i], ese);
+				ese = _print_invalid_spec(format[k - 1], format[k], ese);
 			}
 			else
 			{
-				ese += _print_spec(format[i], args);
+				ese += _print_spec(format[k], args);
 			}
 		}
 		else
 		{
-			ese += _write(format[i]);
+			ese += _write(format[k]);
 		}
 
-		i++;
+		k++;
 	}
 
 	return (ese);
@@ -57,7 +57,7 @@ int _print_format(const char *format, va_list args)
   */
 int _print_spec(char format, va_list args)
 {
-	int i  = 0, length = 0;
+	int k  = 0, length = 0;
 	spc_dt _types[] = {
 		{"c", _print_a_char},
 		{"s", _print_a_string},
@@ -67,24 +67,24 @@ int _print_spec(char format, va_list args)
 		{NULL, NULL}
 	};
 
-	while (_types[i].specifier)
+	while (_types[k].specifier)
 	{
-		if (*_types[i].specifier == format)
-			length = _types[i].f(args);
+		if (*_types[k].specifier == format)
+			length = _types[k].f(args);
 
-		i++;
+		k++;
 	}
 
 	return (length);
 }
 
 /**
-  * _print_invalid_spec - Prints a invalid specifier
-  * @prev_format: The previous specifier of actual specifier
-  * @format: The specifier to prints
-  * @count: The current count before prints invalid specifiers
+  * _print_invalid_spec - .....
+  * @prev_format: .....
+  * @format: specs to print
+  * @count: ........
   *
-  * Return: The current count after prints invalid specifiers
+  * Return: current count
   */
 int _print_invalid_spec(char prev_format, char format, int count)
 {
@@ -96,18 +96,16 @@ int _print_invalid_spec(char prev_format, char format, int count)
 		count += _write(format);
 	}
 	else
-	{
 		count += _write(format);
-	}
 
 	return (count);
 }
 
 /**
-  * _validate_char - validate the type
-  * @_type: character to be comparate
+  * _validate_char - validates the character type
+  * @_type: character to compared
   *
-  * Return: 1 if char is equal to a type
+  * Return: 1 if char is equivalent to the listed type
   */
 int _validate_char(char _type)
 {

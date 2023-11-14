@@ -3,49 +3,51 @@
 #include "main.h"
 
 /**
- * _printf - function my printf
- * @format: string whit format to print
+  * _print_a_integer - Print ints....
+  * @args: list of variadic args...
+  *
+  * Return: The len of the strs...
+  */
+int _print_a_integer(va_list args)
+{
+	int ese = 1, otim = 0;
+	unsigned int k = 0;
+
+	k = va_arg(args, int);
+	otim = k;
+	if (otim < 0)
+	{
+		_write('-');
+		otim = otim * -1;
+		k = otim;
+		ese += 1;
+	}
+	while (k > 9)
+	{
+		k = k / 10;
+		ese++;
+	}
+
+	_recursion_integer(otim);
+	return (ese);
+}
+/**
+ * _printf - printf function...
+ * @format: str format to be printed...
  *
- * Return: number of chars that print
+ * Return: num of characters that should be printed.....
  */
 int _printf(const char *format, ...)
 {
 	va_list args;
-	int count = 0;
+	int ese = 0;
 
+	if (format == NULL)
+		return (-1);
+		else
 	va_start(args, format);
 
-for (int i = 0; format[i] != '\0'; i++)
-{
-	if (format[i] != '%')
-	{
-		write(1, &format[i], 1);
-		count++;
-			}
-			else
-			{
-				i++;
-				switch (format[i])
-				{
-					case 'c':
-					write(1, va_arg(args, int), 1);
-					count++;
-					break;
-					case 's':
-					for (int j = 0; va_arg(args, char *)[j] != '\0'; j++)
-					{
-						write(1, &va_arg(args, char *)[j], 1);
-						count++;
-						}
-						break;
-						case '%':
-						write(1, &format[i], 1);
-						count++;
-						break;
-						}
-						}
-						}
-						va_end(args);
-
-return (count);
+	ese = _print_format(format, args);
+	va_end(args);
+	return (ese);
 }
