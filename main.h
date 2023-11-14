@@ -16,22 +16,21 @@ typedef struct specifiers
 	int (*f)(va_list args);
 } spc_dt;
 /*THE PROTOTYPES USED IN THE PROJECT*/
-void _putchar(char c);
 /*PRINTING OUPUTS*/
-int _print_format(const char *format, va_list args);
-int _print_a_integer(va_list args);
-int _print_a_char(va_list args);
-int _print_invalid_spec(char prev_format, char format, int count);
-int _print_a_string(va_list args);
-int _print_int_binary(va_list args);
-void _recursion_int_binary(int a);
-int _print_spec(char format, va_list args);
+int _print_frmt(const char *format, va_list args);
+int _print_int(va_list args);
+int _print_char(va_list args);
+int _print_invalid_spesf(char prev_formt, char format, int ese);
+int _print_a_str(va_list args);
+int _print_int_bin(va_list args);
+void _recursion_int_bin(int a);
+int _print_specs1(char format, va_list args);
 
 /*VALIDATING CHARACTERS*/
-int _validate_char(char _type);
+int _ValidateChar(char _type);
 int _write(char c);
 /*RECURSING INTEGERS*/
-void _recursion_integer(int a);
+void _recurse_int(int a);
 int _printf(const char *format, ...);
 
 #endif /* ESE AND OTIM */

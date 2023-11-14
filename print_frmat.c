@@ -2,21 +2,21 @@
 #include <stdlib.h>
 
 /**
-  * _print_spec - Prints a valid specifier
+  * _print_specs1 - Prints a valid specifier
   * @format: The specifier to prints
   * @args: A list of variadic arguments
   *
   * Return: The length of the specifier
   */
-int _print_spec(char format, va_list args)
+int _print_specs1(char format, va_list args)
 {
 	int k  = 0, length = 0;
 	spc_dt _types[] = {
-		{"c", _print_a_char},
-		{"s", _print_a_string},
-		{"d", _print_a_integer},
-		{"i", _print_a_integer},
-		{"b", _print_int_binary},
+		{"c", _print_char},
+		{"s", _print_a_str},
+		{"d", _print_int},
+		{"i", _print_int},
+		{"b", _print_int_bin},
 		{NULL, NULL}
 	};
 
@@ -32,35 +32,35 @@ int _print_spec(char format, va_list args)
 }
 
 /**
-  * _print_invalid_spec - .....
-  * @prev_format: .....
+  * _print_invalid_spesf - .....
+  * @prev_formt: .....
   * @format: specs to print
-  * @count: ........
+  * @ese: ........
   *
   * Return: current count
   */
-int _print_invalid_spec(char prev_format, char format, int count)
+int _print_invalid_spesf(char prev_formt, char format, int ese)
 {
-	count += _write('%');
+	ese += _write('%');
 
-	if (prev_format == ' ')
+	if (prev_formt == ' ')
 	{
-		count += _write(' ');
-		count += _write(format);
+		ese += _write(' ');
+		ese += _write(format);
 	}
 	else
-		count += _write(format);
+		ese += _write(format);
 
-	return (count);
+	return (ese);
 }
 
 /**
-  * _validate_char - validates the character type
+  * _ValidateChar - validates the character type
   * @_type: character to compared
   *
   * Return: 1 if char is equivalent to the listed type
   */
-int _validate_char(char _type)
+int _ValidateChar(char _type)
 {
 	char _types[] = {'c', 's', 'd', 'i', 'b', '%'};
 	int l = 0;

@@ -3,12 +3,12 @@
 #include "main.h"
 
 /**
-  * _print_a_integer - Print ints....
+  * _print_int - Print ints....
   * @args: list of variadic args...
   *
   * Return: The len of the strs...
   */
-int _print_a_integer(va_list args)
+int _print_int(va_list args)
 {
 	int ese = 1, otim = 0;
 	unsigned int k = 0;
@@ -28,7 +28,7 @@ int _print_a_integer(va_list args)
 		ese++;
 	}
 
-	_recursion_integer(otim);
+	_recurse_int(otim);
 	return (ese);
 }
 /**
@@ -47,7 +47,7 @@ int _printf(const char *format, ...)
 		else
 	va_start(args, format);
 
-	ese = _print_format(format, args);
+	ese = _print_frmt(format, args);
 	va_end(args);
 	return (ese);
 }

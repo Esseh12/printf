@@ -3,12 +3,12 @@
 #include <unistd.h>
 
 /**
-  * _print_int_binary -......
+  * _print_int_bin -......
   * @args: lists variadic args
   *
   * Return: digit's number printed
   */
-int _print_int_binary(va_list args)
+int _print_int_bin(va_list args)
 {
 	unsigned int remainder = 0;
 	int p = 0, current = 0;
@@ -27,7 +27,7 @@ int _print_int_binary(va_list args)
 		remainder = remainder / 2;
 		p++;
 	}
-	_recursion_int_binary(current);
+	_recursion_int_bin(current);
 	return (p);
 }
 /**
@@ -42,12 +42,12 @@ int _write(char c)
 	return (write(1, &c, 1));
 }
 /**
-  * _print_a_char - Prints chars in the args
+  * _print_char - Prints chars in the args
   * @args: A list of variadic args
   *
   * Return: The len of the chars
   */
-int _print_a_char(va_list args)
+int _print_char(va_list args)
 {
 	_write(va_arg(args, int));
 	return (1);
