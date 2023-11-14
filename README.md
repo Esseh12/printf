@@ -1,4 +1,4 @@
-# Project name 
+# Project name
 
 printf project is an alx group project by Gbenmo Ese and Reagan Otim, started on november 10, 2023 at 6:00am.
 
@@ -39,7 +39,7 @@ follow the following steps:
 	gcc printf.c -o printf
 
 4. Run the compilled executable:
-	./project 
+./project
 
 
 ## Usage
@@ -51,21 +51,7 @@ follow the following steps:
 . %s for strings
 . %c for characters
 . %x for hexadecimal numbers
-3. Usage example:  
-#include <stdio.h>
-
-   int main() {
-       int number = 42;
-       float pi = 3.14159;
-       char name[] = "John Doe";
-
-       my_printf("The answer is %d\n", number);
-       my_printf("The value of pi is %.2f\n", pi);
-       my_printf("Hello, %s!\n", name);
-
-       return 0;
-   }
-4. Build and run your Cprogram using a C compiler. 
+4. Build and run your Cprogram using a C compiler.
  	gcc main.c printf.c -o program
 5. Execute the compiled program:
 	./program

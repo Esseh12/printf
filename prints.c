@@ -3,9 +3,9 @@
 #include <stdlib.h>
 #include <stdio.h>
 /**
- *prnt_int2_bin-.......
-*@args:.....
-*return: the value of the integer
+ * prnt_int2_bin - prints the converted int
+ * @args: args to be printed
+ * Return: an interger
 */
 int prnt_int2_bin(va_list args)
 {
