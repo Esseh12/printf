@@ -3,24 +3,24 @@
 #include <stdio.h>
 
 /**
-  * print_cha - Prints a charactres
-  * @args: list of variadic args
+  * _print_a_char - Prints a char
+  * @args: A list of variadic arguments
   *
-  * Return: The len of the character
+  * Return: The length of the character
   */
-int print_cha(va_list args)
+int _print_a_char(va_list args)
 {
 	_write(va_arg(args, int));
 	return (1);
 }
 
 /**
-  * print_strs - Prints a strs
-  * @args: A list of variadic args
+  * _print_a_string - Prints a string
+  * @args: A list of variadic arguments
   *
-  * Return: The len of the string
+  * Return: The length of the string
   */
-int print_strs(va_list args)
+int _print_a_string(va_list args)
 {
 	char *arg = va_arg(args, char *);
 	int i = 0;
@@ -49,7 +49,7 @@ int print_strs(va_list args)
   * _print_a_integer - Prints a integer
   * @args: A list of variadic arguments
   *
-  * Return: The len of the string
+  * Return: The length of the string
   */
 int _print_a_integer(va_list args)
 {

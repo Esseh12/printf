@@ -2,13 +2,13 @@
 #include <stdlib.h>
 
 /**
-  * print_frmt - Prints a format
+  * _print_format - Prints a format
   * @format: The format to prints
   * @args: A list of variadic arguments
   *
-  * Return: The len of the format
+  * Return: The length of the format
   */
-int print_frmt(const char *format, va_list args)
+int _print_format(const char *format, va_list args)
 {
 	int count = 0;
 	int i = 0;
@@ -34,7 +34,7 @@ int print_frmt(const char *format, va_list args)
 			}
 			else
 			{
-				count += print_specs(format[i], args);
+				count += _print_spec(format[i], args);
 			}
 		}
 		else
@@ -49,18 +49,18 @@ int print_frmt(const char *format, va_list args)
 }
 
 /**
-  * print_specs - Prints a valid specifier
+  * _print_spec - Prints a valid specifier
   * @format: The specifier to prints
   * @args: A list of variadic arguments
   *
-  * Return: The len of the specifier
+  * Return: The length of the specifier
   */
-int print_specs(char format, va_list args)
+int _print_spec(char format, va_list args)
 {
-	int i  = 0, len = 0;
+	int i  = 0, length = 0;
 	spc_dt _types[] = {
-		{"c", print_cha},
-		{"s", print_strs},
+		{"c", _print_a_char},
+		{"s", _print_a_string},
 		{"d", _print_a_integer},
 		{"i", _print_a_integer},
 		{"b", _print_int_binary},
@@ -70,12 +70,12 @@ int print_specs(char format, va_list args)
 	while (_types[i].specifier)
 	{
 		if (*_types[i].specifier == format)
-			len = _types[i].f(args);
+			length = _types[i].f(args);
 
 		i++;
 	}
 
-	return (len);
+	return (length);
 }
 
 /**
