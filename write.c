@@ -4,16 +4,16 @@
 
 /**
   * _print_int_bin -......
-  * @args: lists variadic args
+  * @melo: lists variadic args
   *
   * Return: digit's number printed
   */
-int _print_int_bin(va_list args)
+int _print_int_bin(va_list melo)
 {
 	unsigned int remainder = 0;
 	int p = 0, current = 0;
 
-	current = va_arg(args, int);
+	current = va_arg(melo, int);
 	remainder = current;
 	if (current < 0)
 	{
@@ -32,14 +32,14 @@ int _print_int_bin(va_list args)
 }
 /**
  * _write - writes the character c to standard output
- * @c: The chars to be printed
+ * @a: The chars to be printed
  *
  * Return: 1 if successful
  * On error, -1 is returned.
  */
-int _write(char c)
+int _write(char a)
 {
-	return (write(1, &c, 1));
+	return (write(1, &a, 1));
 }
 /**
   * _print_char - Prints chars in the args

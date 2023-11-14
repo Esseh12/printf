@@ -3,14 +3,14 @@
 
 /**
   * _print_specs1 - Prints a valid specifier
-  * @format: The specifier to prints
+  * @formt: The specifier to prints
   * @args: A list of variadic arguments
   *
   * Return: The length of the specifier
   */
-int _print_specs1(char format, va_list args)
+int _print_specs1(char formt, va_list args)
 {
-	int k  = 0, length = 0;
+	int k  = 0, len = 0;
 	spc_dt _types[] = {
 		{"c", _print_char},
 		{"s", _print_a_str},
@@ -22,13 +22,13 @@ int _print_specs1(char format, va_list args)
 
 	while (_types[k].specifier)
 	{
-		if (*_types[k].specifier == format)
-			length = _types[k].f(args);
+		if (*_types[k].specifier == formt)
+			len = _types[k].f(args);
 
 		k++;
 	}
 
-	return (length);
+	return (len);
 }
 
 /**
