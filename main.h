@@ -1,66 +1,10 @@
 #ifndef _MAIN_H
 #define _MAIN_H
-#include <stdarg.h>
 #include <stdio.h>
 #include <string.h>
-/**
- *enum -....
-
-typedef enum
-{
-    CONV_NONE,
-    CONV_DECIMAL,
-    CONV_OCTAL,
-    CONV_UNSIGNED,
-    CONV_HEXADECIMAL,
-    CONV_FLOAT,
-    CONV_EXPONENTIAL,
-    CONV_GENERIC,
-    CONV_CHAR,
-    CONV_STRING,
-    CONV_POINTER
-} ConversionType;
-
-typedef enum
-{
-    LENGTH_NONE,
-    LENGTH_LONG,
-    LENGTH_LONG_LONG,
-    LENGTH_LONG_DOUBLE,
-    LENGTH_SIZE_T,
-    LENGTH_PTRDIFF_T
-} LengthModifier;
-/**
- * struct - gudddahscg
-
-typedef struct
-{
-  char flags[5];
-    int width;
-    int precision;
-    ConversionType conversionType;
-    LengthModifier lengthModifier;
-} Conversion;
-
-int is_conversion_specifier(char c) {
-    if (c >= 'A' && c <= 'Z') return 1;
-    if (c >= 'a' && c <= 'z') return 1;
-    return 0;
-}
-
-void parse_flags(Conversion *conversion, const char *format) {
-    char *flags = conversion->flags;
-    memset(flags, 0, sizeof(conversion->flags));
-
-    while (*format && !is_conversion_specifier(*format)) {
-        if (*format == '-') strncat(flags, "-", 1);
-        else if (*format == '+') strncat(flags, "+", 1);
-        else if (*format == ' ') strncat(flags, " ", 1);
-        else if (*format == '#') strncat(flags, "#", 1);
-        else if (*format == '0') strncat(flags, "0", 1);
-        format++;
-    }
-*/
+#include <stdio.h>
+#include <string.h>
+#include <stdarg.h>
 /**
   * struct specifiers - Struct specifiers
   * @specifier: The conversion specifier

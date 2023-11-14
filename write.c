@@ -31,15 +31,6 @@ int _print_int_binary(va_list args)
 	return (p);
 }
 /**
- *_putchar- prints a character
- *@c : char to print
-*/
-void _putchar(char c)
-{
-	write(STDOUT_FILENO, &c, 1);
-}
-
-/**
  * _write - writes the character c to standard output
  * @c: The chars to be printed
  *

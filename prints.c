@@ -24,12 +24,12 @@ int _print_a_string(va_list args)
 		return (ese);
 	}
 
-	_putchar('(');
-	_putchar('n');
-	_putchar('u');
-	_putchar('l');
-	_putchar('l');
-	_putchar(')');
+	_write('(');
+	_write('n');
+	_write('u');
+	_write('l');
+	_write('l');
+	_write(')');
 	return (6);
 }
 
