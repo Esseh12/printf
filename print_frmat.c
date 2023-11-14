@@ -26,7 +26,7 @@ int print_frmt(const char *format, va_list args)
 				i++;
 
 			if (format[i] == '%')
-				count += w_rite(format[i]);
+				count += _write(format[i]);
 
 			if (_validate_char(format[i]) == 0)
 			{
@@ -39,7 +39,7 @@ int print_frmt(const char *format, va_list args)
 		}
 		else
 		{
-			count += w_rite(format[i]);
+			count += _write(format[i]);
 		}
 
 		i++;
@@ -88,16 +88,16 @@ int print_specs(char format, va_list args)
   */
 int _print_invalid_spec(char prev_format, char format, int count)
 {
-	count += w_rite('%');
+	count += _write('%');
 
 	if (prev_format == ' ')
 	{
-		count += w_rite(' ');
-		count += w_rite(format);
+		count += _write(' ');
+		count += _write(format);
 	}
 	else
 	{
-		count += w_rite(format);
+		count += _write(format);
 	}
 
 	return (count);
