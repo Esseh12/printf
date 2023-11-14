@@ -2,13 +2,13 @@
 #include <stdlib.h>
 
 /**
-  * _print_format - Prints a format
+  * print_frmt - Prints a format
   * @format: The format to prints
   * @args: A list of variadic arguments
   *
-  * Return: The length of the format
+  * Return: The len of the format
   */
-int _print_format(const char *format, va_list args)
+int print_frmt(const char *format, va_list args)
 {
 	int count = 0;
 	int i = 0;
@@ -26,7 +26,7 @@ int _print_format(const char *format, va_list args)
 				i++;
 
 			if (format[i] == '%')
-				count += _write(format[i]);
+				count += w_rite(format[i]);
 
 			if (_validate_char(format[i]) == 0)
 			{
@@ -34,12 +34,12 @@ int _print_format(const char *format, va_list args)
 			}
 			else
 			{
-				count += _print_spec(format[i], args);
+				count += print_specs(format[i], args);
 			}
 		}
 		else
 		{
-			count += _write(format[i]);
+			count += w_rite(format[i]);
 		}
 
 		i++;
@@ -49,18 +49,18 @@ int _print_format(const char *format, va_list args)
 }
 
 /**
-  * _print_spec - Prints a valid specifier
+  * print_specs - Prints a valid specifier
   * @format: The specifier to prints
   * @args: A list of variadic arguments
   *
-  * Return: The length of the specifier
+  * Return: The len of the specifier
   */
-int _print_spec(char format, va_list args)
+int print_specs(char format, va_list args)
 {
-	int i  = 0, length = 0;
+	int i  = 0, len = 0;
 	spc_dt _types[] = {
-		{"c", _print_a_char},
-		{"s", _print_a_string},
+		{"c", print_cha},
+		{"s", print_strs},
 		{"d", _print_a_integer},
 		{"i", _print_a_integer},
 		{"b", _print_int_binary},
@@ -70,12 +70,12 @@ int _print_spec(char format, va_list args)
 	while (_types[i].specifier)
 	{
 		if (*_types[i].specifier == format)
-			length = _types[i].f(args);
+			len = _types[i].f(args);
 
 		i++;
 	}
 
-	return (length);
+	return (len);
 }
 
 /**
@@ -88,16 +88,16 @@ int _print_spec(char format, va_list args)
   */
 int _print_invalid_spec(char prev_format, char format, int count)
 {
-	count += _write('%');
+	count += w_rite('%');
 
 	if (prev_format == ' ')
 	{
-		count += _write(' ');
-		count += _write(format);
+		count += w_rite(' ');
+		count += w_rite(format);
 	}
 	else
 	{
-		count += _write(format);
+		count += w_rite(format);
 	}
 
 	return (count);

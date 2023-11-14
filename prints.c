@@ -3,24 +3,24 @@
 #include <stdio.h>
 
 /**
-  * _print_a_char - Prints a char
-  * @args: A list of variadic arguments
+  * print_cha - Prints a charactres
+  * @args: list of variadic args
   *
-  * Return: The length of the character
+  * Return: The len of the character
   */
-int _print_a_char(va_list args)
+int print_cha(va_list args)
 {
-	_write(va_arg(args, int));
+	w_rite(va_arg(args, int));
 	return (1);
 }
 
 /**
-  * _print_a_string - Prints a string
-  * @args: A list of variadic arguments
+  * print_strs - Prints a strs
+  * @args: A list of variadic args
   *
-  * Return: The length of the string
+  * Return: The len of the string
   */
-int _print_a_string(va_list args)
+int print_strs(va_list args)
 {
 	char *arg = va_arg(args, char *);
 	int i = 0;
@@ -29,19 +29,19 @@ int _print_a_string(va_list args)
 	{
 		while (arg[i])
 		{
-			_write(arg[i]);
+			w_rite(arg[i]);
 			i++;
 		}
 
 		return (i);
 	}
 
-	_write('(');
-	_write('n');
-	_write('u');
-	_write('l');
-	_write('l');
-	_write(')');
+	w_rite('(');
+	w_rite('n');
+	w_rite('u');
+	w_rite('l');
+	w_rite('l');
+	w_rite(')');
 	return (6);
 }
 
@@ -49,7 +49,7 @@ int _print_a_string(va_list args)
   * _print_a_integer - Prints a integer
   * @args: A list of variadic arguments
   *
-  * Return: The length of the string
+  * Return: The len of the string
   */
 int _print_a_integer(va_list args)
 {
@@ -60,7 +60,7 @@ int _print_a_integer(va_list args)
 	m = n;
 	if (m < 0)
 	{
-		_write('-');
+		w_rite('-');
 		m = m * -1;
 		n = m;
 		count += 1;
@@ -88,5 +88,5 @@ void _recursion_integer(int a)
 	t = a;
 	if (t / 10)
 		_recursion_integer(t / 10);
-	_write(t % 10 + '0');
+	w_rite(t % 10 + '0');
 }
