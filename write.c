@@ -10,25 +10,33 @@
   */
 int _print_int_binary(va_list args)
 {
-	unsigned int m = 0;
-	int b = 0, current = 0;
+	unsigned int remainder = 0;
+	int p = 0, current = 0;
 
 	current = va_arg(args, int);
-	m = current;
+	remainder = current;
 	if (current < 0)
 	{
 		_write('1');
 		current = current * -1;
-		m = current;
-		b += 1;
+		remainder = current;
+		p += 1;
 	}
-	while (m > 0)
+	while (remainder > 0)
 	{
-		m = m / 2;
-		b++;
+		remainder = remainder / 2;
+		p++;
 	}
 	_recursion_int_binary(current);
-	return (b);
+	return (p);
+}
+/**
+ *_putchar- prints a character
+ *@c : char to print
+*/
+void _putchar(char c)
+{
+	write(STDOUT_FILENO, &c, 1);
 }
 
 /**

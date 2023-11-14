@@ -13,7 +13,7 @@ typedef struct specifiers
 	int (*f)(va_list args);
 } spc_dt;
 /*THE PROTOTYPES USED IN THE PROJECT*/
-
+void _putchar(char c);
 /*PRINTING OUPUTS*/
 int _print_format(const char *format, va_list args);
 int _print_a_integer(va_list args);
