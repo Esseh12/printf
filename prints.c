@@ -1,47 +1,92 @@
 #include "main.h"
-#include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
-/**
- * prnt_int2_bin - prints the converted int
- * @args: args to be printed
- * Return: an interger
-*/
-int prnt_int2_bin(va_list args)
-{
-unsigned int y = 0;
-int m = 0, current = 0;
-
-current = va_arg(args, int);
-y = current;
-if (current < 0)
-{
-wrte('1');
-current = current * -1;
-y = current;
-m += 1;
-}
-while (y > 0)
-{
-y = y / 2;
-m++;
-}
-recurse_int_bin(current);
-return (m);
-}
 
 /**
-  * recurse_int_bin - Prints a bin.....
-  * @a: int to prnt.....
-  *.....
+  * _print_a_char - Prints a char
+  * @args: A list of variadic arguments
+  *
+  * Return: The length of the character
   */
-void recurse_int_bin(int a)
+int _print_a_char(va_list args)
 {
-unsigned int k;
-
-k = a;
-if (k / 2)
-recurse_int_bin(k / 2);
-wrte(k % 2 + '0');
+	_write(va_arg(args, int));
+	return (1);
 }
 
+/**
+  * _print_a_string - Prints a string
+  * @args: A list of variadic arguments
+  *
+  * Return: The length of the string
+  */
+int _print_a_string(va_list args)
+{
+	char *arg = va_arg(args, char *);
+	int i = 0;
+
+	if (arg != NULL)
+	{
+		while (arg[i])
+		{
+			_write(arg[i]);
+			i++;
+		}
+
+		return (i);
+	}
+
+	_write('(');
+	_write('n');
+	_write('u');
+	_write('l');
+	_write('l');
+	_write(')');
+	return (6);
+}
+
+/**
+  * _print_a_integer - Prints a integer
+  * @args: A list of variadic arguments
+  *
+  * Return: The length of the string
+  */
+int _print_a_integer(va_list args)
+{
+	int count = 1, m = 0;
+	unsigned int n = 0;
+
+	n = va_arg(args, int);
+	m = n;
+	if (m < 0)
+	{
+		_write('-');
+		m = m * -1;
+		n = m;
+		count += 1;
+	}
+	while (n > 9)
+	{
+		n = n / 10;
+		count++;
+	}
+
+	_recursion_integer(m);
+	return (count);
+}
+
+/**
+  * _recursion_integer - Prints a integer
+  * @a: integer to print
+  *
+  * Return: Nothing
+  */
+void _recursion_integer(int a)
+{
+	unsigned int t;
+
+	t = a;
+	if (t / 10)
+		_recursion_integer(t / 10);
+	_write(t % 10 + '0');
+}

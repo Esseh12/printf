@@ -1,14 +1,13 @@
-#include "main.h"
 #include <unistd.h>
-
+#include <stdio.h>
 /**
- * wrte - writes the char c to standard output
- * @c: The char to be printed down
+ * _write - writes the character c to stdout
+ * @c: The character to print
  *
- * Return: 1 if successful.
- * On error, -1 is always a choice
+ * Return: On success 1.
+ * On error, -1 is returned, and errno is set appropriately.
  */
-int wrte(char c)
+int _write(char c)
 {
 	return (write(1, &c, 1));
 }

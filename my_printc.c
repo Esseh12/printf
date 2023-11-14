@@ -1,24 +1,23 @@
+#include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include "main.h"
-
 /**
- * _printf - my printf function to be tested,..
- * @format: str format to be printed...
+ * _printf - function my printf
+ * @format: string whit format to print
  *
- * Return: number of chars that is printed
+ * Return: number of chars that print
  */
 int _printf(const char *format, ...)
 {
-va_list args;
-int len = 0;
+	va_list args;
+	int length = 0;
 
-if (format == NULL)
-return (-1);
+	if (format == NULL)
+		return (-1);
 
-va_start(args, format);
+	va_start(args, format);
 
-len = prnt_frmat(format, args);
-va_end(args);
-return (len);
+	length = _print_format(format, args);
+	va_end(args);
+	return (length);
 }
